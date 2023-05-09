@@ -26,7 +26,14 @@ minikube start --driver=docker --memory 4g --nodes 2
 ```
 kubectl create namespace monitoring
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+helm search repo prometheus-community/kube-prometheus-stack --versions
+
 helm install prometheus-stack prometheus-community/kube-prometheus-stack -n monitoring
+```
+ps. If you wanna uase it in sand box , use th below command line:
+```
+helm install prometheus-stack prometheus-community/kube-prometheus-stack -n monitoring  --version  31.0.2
 ```
 3. Verify the resources were deployed successfully.
 ```
